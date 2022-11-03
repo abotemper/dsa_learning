@@ -26,6 +26,34 @@ class HashTable:
                     return self.data_map[index][i][1]
         return None
 
+    def keys(self):
+        all_keys = []
+        for i in range(len(self.data_map)):
+            if self.data_map[i] is not None:
+                for j in range(len(self.data_map[i])):
+                    all_keys.append(self.data_map[i][j][0])
+        return all_keys
+
+
+def item_in_common(list1, list2):
+    for i in list1:
+        for j in list2:
+            if i == j:
+                return True
+        return False
+
+
+def item_in_common2(list1, list2):
+    my_dict = {}
+    for i in list1:
+        my_dict[i] = True
+
+    for j in list2:
+        if j in my_dict:
+            return True
+    return False
+
+
 # m1 = HashTable()
 # m1.set_item('gg', 200)
 # m1.set_item('hh', 300)
